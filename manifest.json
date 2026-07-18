@@ -1,0 +1,22 @@
+{
+  "short_name": "Portal Bimbo",
+  "name": "Portal Bimbo Apps",
+  "icons": [
+    {
+      "src": "img/background-bimbo.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/background-bimbo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#003F87",
+  "display": "standalone",
+  "theme_color": "#003F87",
+  "orientation": "portrait-primary"
+}
