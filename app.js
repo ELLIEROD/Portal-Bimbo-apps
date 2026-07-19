@@ -31,7 +31,13 @@ const apps = [
     url: "https://ellierod.github.io/QA-Segregados/", // link para o app
     pwa: true // se ele também pode ser instalado individualmente
   },
-
+{
+    nome: "Calendário de Claves",
+    descricao: "Controle de data de validade e calendário de claves.",
+    icone: "img/Calendarioclaves.png", // caminho para o ícone
+    url: "https://ellierod.github.io/calendarioclaves/", // link para o app
+    pwa: true // se ele também pode ser instalado individualmente
+  },
   
 ];
 
