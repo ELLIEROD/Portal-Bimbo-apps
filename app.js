@@ -44,21 +44,25 @@ const apps = [
 // Renderiza os apps na tela
 const appGrid = document.getElementById('appGrid');
 
-// Altere apenas a parte onde o JS renderiza os cards:
+// No seu loop de renderização (dentro do app.js):
 apps.forEach(app => {
-  const card = document.createElement('a'); // Criado como tag 'a'
+  const card = document.createElement('div'); // Mudou de 'a' para 'div'
   card.className = 'app-card';
-  card.href = app.url; // O card inteiro vira o link direto
   
   card.innerHTML = `
     <div class="icon-wrapper">
       <img src="${app.icone}" alt="${app.nome}" class="app-icon">
     </div>
     <h3>${app.nome}</h3>
+    <div class="card-actions">
+      <a href="${app.url}" target="_blank" class="btn-access">Acessar</a>
+      <button class="btn-install-sub" onclick="window.open('${app.url}', '_blank')">Instalar</button>
+    </div>
   `;
   
   appGrid.appendChild(card);
 });
+
 
 // --- Lógica de Instalação do Portal (PWA) ---
 let deferredPrompt;
