@@ -245,62 +245,47 @@ body {
 
 /* Card transformado em um único botão clicável */
 /* Atualize o card para não ser um link */
+/* Card volta a ser um botão único e limpo */
 .app-card {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  padding: 1.2rem 0.8rem;
+  padding: 1.5rem 1rem;
   text-align: center;
+  text-decoration: none;
+  color: var(--text-dark);
   box-shadow: var(--shadow);
   border: 1px solid rgba(255, 255, 255, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Removemos o cursor pointer do card todo, pois ele não é mais um link */
-}
-
-/* Container dos botões */
-.card-actions {
-  display: flex;
-  gap: 5px;
-  width: 100%;
-  margin-top: 10px;
-}
-
-/* Botão Acessar */
-.btn-access {
-  flex: 1;
-  background-color: var(--blue-primary);
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
-}
-
-/* Botão Instalar (estilo secundário) */
-.btn-install-sub {
-  flex: 1;
-  background-color: #f1f5f9;
-  color: var(--blue-primary);
-  border: 1px solid var(--blue-primary);
-  padding: 0.5rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  justify-content: center;
+  transition: transform 0.2s ease;
   cursor: pointer;
-}
-
-.btn-install-sub:hover {
-  background-color: var(--blue-primary);
-  color: white;
 }
 
 .app-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 63, 135, 0.25);
   background-color: #ffffff;
 }
+
+.icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background-color: #fff;
+  border: 3px solid var(--blue-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.app-card h3 {
+  font-size: 0.9rem;
+  color: var(--blue-primary);
+  font-weight: 700;
+}
+
 
 /* Círculo Estilizado para o Ícone */
 .icon-wrapper {
