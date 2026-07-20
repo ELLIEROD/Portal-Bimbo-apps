@@ -46,7 +46,7 @@ const appGrid = document.getElementById('appGrid');
 
 // No seu loop de renderização (dentro do app.js):
 apps.forEach(app => {
-  const card = document.createElement('div'); // Mudou de 'a' para 'div'
+  const card = document.createElement('div');
   card.className = 'app-card';
   
   card.innerHTML = `
@@ -55,8 +55,11 @@ apps.forEach(app => {
     </div>
     <h3>${app.nome}</h3>
     <div class="card-actions">
+      <!-- Acessa o app normalmente -->
       <a href="${app.url}" target="_blank" class="btn-access">Acessar</a>
-      <button class="btn-install-sub" onclick="window.open('${app.url}', '_blank')">Instalar</button>
+      
+      <!-- Abre o app direto na rotina de instalação automatizada -->
+      <button class="btn-install-sub" onclick="window.open('${app.url}?install=true', '_blank')">Instalar</button>
     </div>
   `;
   
