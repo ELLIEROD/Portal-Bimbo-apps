@@ -42,29 +42,42 @@ const apps = [
 ];
 
 // Renderiza os apps na tela
-const appGrid = document.getElementById('appGrid');
-
-// No seu loop de renderização (dentro do app.js):
+// Renderiza os apps de forma simples: clicou, abriu em nova aba.
 apps.forEach(app => {
-  const card = document.createElement('div');
+  const card = document.createElement('a'); 
   card.className = 'app-card';
+  card.href = app.url;
+  card.target = "_blank"; // Abre em nova aba para não bugar o PWA
   
   card.innerHTML = `
     <div class="icon-wrapper">
       <img src="${app.icone}" alt="${app.nome}" class="app-icon">
     </div>
     <h3>${app.nome}</h3>
-    <div class="card-actions">
-      <!-- Acessa o app normalmente -->
-      <a href="${app.url}" target="_blank" class="btn-access">Acessar</a>
-      
-      <!-- Abre o app direto na rotina de instalação automatizada -->
-      <button class="btn-install-sub" onclick="window.open('${app.url}?install=true', '_blank')">Instalar</button>
-    </div>
   `;
   
   appGrid.appendChild(card);
 });
+
+// --- RESTAURANDO O BOTÃO DE INSTALAR PORTAL (No topo) ---
+let deferredPrompt;
+const btnInstall = document.getElementById('btnInstall');
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  btnInstall.style.display = 'block'; // O botão volta a aparecer no Header
+});
+
+btnInstall.addEventListener('click', async () => {
+  if (deferredPrompt) {
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    btnInstall.style.display = 'none';
+  }
+});
+
 
 
 // --- Lógica de Instalação do Portal (PWA) ---
