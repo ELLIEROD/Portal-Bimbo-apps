@@ -1,13 +1,13 @@
 /* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS & BACKGROUND PERSONALIZADO
+   1. CONFIGURAÇÕES GERAIS & BACKGROUND
    ========================================================================== */
 :root {
   --blue-primary: #003F87;    
   --blue-secondary: #0056b3;  
   --accent-red: #E21A22;      
-  --text-dark: #1e293b;       
+  --text-dark: #1e293b;        
   --text-light: #f8fafc;      
-  --card-bg: rgba(255, 255, 255, 0.92); /* Leve transparência para mostrar o fundo */
+  --card-bg: rgba(255, 255, 255, 0.92);
   --shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   --border-radius: 16px;
 }
@@ -20,13 +20,11 @@
 }
 
 body {
-  /* Busca a imagem na pasta img e configura para cobrir a tela sem repetir */
   background-image: linear-gradient(rgba(241, 245, 249, 0.40), rgba(241, 245, 249, 0.40)), url('img/background-bimbo.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  
   color: var(--text-dark);
   min-height: 100vh;
   display: flex;
@@ -34,7 +32,7 @@ body {
 }
 
 /* ==========================================================================
-   2. HEADER (Topo do Portal Unificado com Logo)
+   2. HEADER (Topo do Portal Unificado)
    ========================================================================== */
 .bimbo-header {
   background: linear-gradient(135deg, var(--blue-primary), var(--blue-secondary));
@@ -46,7 +44,6 @@ body {
   position: relative;
 }
 
-/* Alinhamento do container principal */
 .logo-container {
   display: flex;
   flex-direction: column;
@@ -54,39 +51,34 @@ body {
   justify-content: center;
 }
 
-/* Garante que o título alinhe os textos e a imagem na mesma linha horizontal */
 .portal-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px; /* Espaço lateral entre as palavras e o logo */
+  gap: 12px;
   font-size: 2.2rem;
-  font-weight: 900; /* Fonte bem grossa */
+  font-weight: 900;
   text-transform: uppercase;
-  margin-bottom: 0.3rem; /* Espaço antes do subtítulo */
+  margin-bottom: 0.3rem;
 }
 
-/* Estilização das palavras em Azul (Portal e Apps) */
 .text-blue {
-  color: #ffffff; /* Branco se destaca perfeitamente no fundo azul escuro */
+  color: #ffffff;
   letter-spacing: -1px;
 }
 
-/* Deixa o "apps" em minúsculo para um visual mais moderno */
 .text-lowercase {
   text-transform: lowercase;
 }
 
-/* Controla o tamanho da imagem da Bimbo para alinhar com o tamanho da fonte */
 .header-logo-img {
-  height: 42px; /* Altura ideal para acompanhar o texto de 2.2rem */
+  height: 42px;
   width: auto;
   object-fit: contain;
   display: inline-block;
   vertical-align: middle;
 }
 
-/* RESTAURADO: Estilo do Subtítulo */
 .logo-container p {
   font-size: 0.95rem;
   opacity: 0.9;
@@ -95,7 +87,6 @@ body {
   margin-top: 0.2rem;
 }
 
-/* Botão de Instalação no Header */
 .btn-install {
   background-color: var(--accent-red);
   color: var(--text-light);
@@ -108,6 +99,7 @@ body {
   margin-top: 0.8rem;
   transition: transform 0.2s, background-color 0.2s;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  display: none; /* Inicia oculto e só aparece via JS se puder instalar */
 }
 
 .btn-install:hover {
@@ -115,127 +107,15 @@ body {
   transform: translateY(-1px);
 }
 
-/* Ajuste responsivo para telas de celular */
-@media (max-width: 480px) {
-  .portal-title {
-    font-size: 1.6rem;
-    gap: 6px;
-  }
-  .header-logo-img {
-    height: 30px;
-  }
-  .logo-container p {
-    font-size: 0.85rem;
-  }
-}
-
 /* ==========================================================================
-   2. HEADER (Topo do Portal Unificado com Logo)
-   ========================================================================== */
-.bimbo-header {
-  background: linear-gradient(135deg, var(--blue-primary), var(--blue-secondary));
-  color: var(--text-light);
-  padding: 1.5rem 1rem;
-  text-align: center;
-  box-shadow: var(--shadow);
-  border-bottom: 4px solid var(--accent-red);
-  position: relative;
-}
-
-/* Alinhamento do container principal */
-.logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Garante que o título alinhe os textos e a imagem na mesma linha horizontal */
-.portal-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px; /* Espaço lateral entre as palavras e o logo */
-  font-size: 2.2rem;
-  font-weight: 900; /* Fonte bem grossa */
-  text-transform: uppercase;
-  margin-bottom: 0.3rem; /* Espaço antes do subtítulo */
-}
-
-/* Estilização das palavras em Azul (Portal e Apps) */
-.text-blue {
-  color: #ffffff; /* Branco se destaca perfeitamente no fundo azul escuro */
-  letter-spacing: -1px;
-}
-
-/* Deixa o "apps" em minúsculo para um visual mais moderno */
-.text-lowercase {
-  text-transform: lowercase;
-}
-
-/* Controla o tamanho da imagem da Bimbo para alinhar com o tamanho da fonte */
-.header-logo-img {
-  height: 42px; /* Altura ideal para acompanhar o texto de 2.2rem */
-  width: auto;
-  object-fit: contain;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-/* RESTAURADO: Estilo do Subtítulo */
-.logo-container p {
-  font-size: 0.95rem;
-  opacity: 0.9;
-  font-weight: 300;
-  letter-spacing: 0.5px;
-  margin-top: 0.2rem;
-}
-
-/* Botão de Instalação no Header */
-.btn-install {
-  background-color: var(--accent-red);
-  color: var(--text-light);
-  border: none;
-  padding: 0.5rem 1rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 20px;
-  cursor: pointer;
-  margin-top: 0.8rem;
-  transition: transform 0.2s, background-color 0.2s;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.btn-install:hover {
-  background-color: #b8141a;
-  transform: translateY(-1px);
-}
-
-/* Ajuste responsivo para telas de celular */
-@media (max-width: 480px) {
-  .portal-title {
-    font-size: 1.6rem;
-    gap: 6px;
-  }
-  .header-logo-img {
-    height: 30px;
-  }
-  .logo-container p {
-    font-size: 0.85rem;
-  }
-}
-
-/* ==========================================================================
-   3. GRID DE APPS (Ultra Compacto e Intuitivo)
+   3. GRID DE APPS
    ========================================================================== */
 .app-grid {
   flex: 1;
-  max-width: 900px; /* Reduzido para aproximar os ícones na tela */
+  max-width: 900px;
   width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
-  
-  /* Mantém uma distribuição harmônica de ícones pequenos */
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   gap: 1.5rem;
@@ -243,13 +123,10 @@ body {
   align-content: start;
 }
 
-/* Card transformado em um único botão clicável */
-/* Atualize o card para não ser um link */
-/* Card volta a ser um botão único e limpo */
 .app-card {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
-  padding: 1.5rem 1rem;
+  padding: 1.2rem 0.8rem;
   text-align: center;
   text-decoration: none;
   color: var(--text-dark);
@@ -259,7 +136,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   cursor: pointer;
 }
 
@@ -269,42 +146,22 @@ body {
 }
 
 .icon-wrapper {
-  width: 80px;
-  height: 80px;
-  background-color: #fff;
+  width: 70px;
+  height: 70px;
+  background-color: #ffffff;
   border: 3px solid var(--blue-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
-}
-
-.app-card h3 {
-  font-size: 0.9rem;
-  color: var(--blue-primary);
-  font-weight: 700;
-}
-
-
-/* Círculo Estilizado para o Ícone */
-.icon-wrapper {
-  width: 70px;
-  height: 70px;
-  background-color: #ffffff;
-  border: 3px solid var(--blue-primary);
-  border-radius: 50%; /* Faz o círculo perfeito */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 0.8rem;
-  overflow: hidden; /* Garante que a imagem não saia do círculo */
+  overflow: hidden;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
   transition: border-color 0.2s;
 }
 
 .app-card:hover .icon-wrapper {
-  border-color: var(--accent-red); /* Círculo ganha borda vermelha no hover */
+  border-color: var(--accent-red);
 }
 
 .app-icon {
@@ -322,7 +179,7 @@ body {
 }
 
 /* ==========================================================================
-   4. RODAPÉ
+   4. RODAPÉ & RESPONSIVIDADE
    ========================================================================== */
 .portfolio-footer {
   background-color: #0f172a;
@@ -337,7 +194,19 @@ body {
   font-weight: 600;
 }
 
-/* Responsividade extra para celulares pequenos */
+@media (max-width: 480px) {
+  .portal-title {
+    font-size: 1.6rem;
+    gap: 6px;
+  }
+  .header-logo-img {
+    height: 30px;
+  }
+  .logo-container p {
+    font-size: 0.85rem;
+  }
+}
+
 @media (max-width: 360px) {
   .app-grid {
     grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
