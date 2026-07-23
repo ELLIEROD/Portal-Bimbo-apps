@@ -1,5 +1,5 @@
 // 1. Subimos a versão para v3 para invalidar o cache antigo das imagens
-const CACHE_NAME = 'portal-bimbo-v3';
+const CACHE_NAME = 'portal-bimbo-v4';
 
 // 2. Incluídos os ícones na lista de recursos em cache
 const ASSETS = [
